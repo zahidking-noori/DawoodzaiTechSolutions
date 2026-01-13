@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Dawoodzai Tech Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">DTS</span>
+                <div class="logo-subtitle">
+                    <span>Dawoodzai</span>
+                    <span>Tech Solutions</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="web-design.html">Web Design</a></li>
+                <li><a href="repairs.html">Repairs & Sales</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+
+            <a href="contact.html" class="cta-btn">Get Quote</a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <span class="section-label light">Contact Us</span>
+            <h1 class="page-title">
+                Get in<br>
+                <span class="text-primary">Touch</span>
+            </h1>
+            <p class="page-description">
+                Have a question or ready to start your project? We'd love to hear from you. 
+                Reach out and let's discuss how we can help.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📞</div>
+                    <h3>Phone</h3>
+                    <a href="tel:832-292-7088" class="contact-info-value">832-292-7088</a>
+                    <p class="contact-info-desc">Call us anytime</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">✉️</div>
+                    <h3>Email</h3>
+                    <a href="mailto:nooriibrahim07@gmail.com" class="contact-info-value">nooriibrahim07@gmail.com</a>
+                    <p class="contact-info-desc">Send us an email</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📍</div>
+                    <h3>Address</h3>
+                    <a href="https://maps.google.com/?q=4600+Duke+St+Alexandria+VA" target="_blank" class="contact-info-value">4600 Duke St, Alexandria, VA</a>
+                    <p class="contact-info-desc">Visit our location</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">⏰</div>
+                    <h3>Hours</h3>
+                    <p class="contact-info-value">Mon - Sat: 9AM - 7PM</p>
+                    <p class="contact-info-desc">Business hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Send Us a Message</h2>
+                    <p class="form-intro">Fill out the form below and we'll get back to you within 24 hours.</p>
+                    
+                    <div id="successMessage" class="success-message" style="display: none;">
+                        <span class="success-icon">✓</span>
+                        Message sent successfully! We'll be in touch soon.
+                    </div>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Needed</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="web-design">Web Design & Development</option>
+                                    <option value="laptop-repair">Laptop Repair</option>
+                                    <option value="pc-repair">PC Repair</option>
+                                    <option value="pc-building">Custom PC Building</option>
+                                    <option value="tech-support">Tech Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">Sending...</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Map & Info -->
+                <div class="contact-sidebar">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3108.6!2d-77.08!3d38.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDQ5JzEyLjAiTiA3N8KwMDQnNDguMCJX!5e0!3m2!1sen!2sus!4v1234567890!5m2!1sen!2sus"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <div class="why-choose-box">
+                        <h3>Why Choose DTS?</h3>
+                        <ul class="why-choose-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Fast Response</strong>
+                                    <p>We respond to all inquiries within 24 hours.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Free Estimates</strong>
+                                    <p>Get a detailed quote at no cost or obligation.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Expert Service</strong>
+                                    <p>10+ years of experience in tech solutions.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Satisfaction Guaranteed</strong>
+                                    <p>We stand behind all our work with warranties.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Prefer to Talk?</h2>
+            <p class="cta-description">
+                Call us directly for immediate assistance.
+            </p>
+            <a href="tel:832-292-7088" class="btn btn-light btn-large">
+                📞 832-292-7088
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">DTS</div>
+                    <p class="footer-description">
+                        Dawoodzai Tech Solutions provides comprehensive technology services including 
+                        web development, computer repairs, and custom PC building.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">📷</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Development</a></li>
+                        <li><a href="services.html">Custom Cards</a></li>
+                        <li><a href="repairs.html">Laptop & PC Repair</a></li>
+                        <li><a href="repairs.html">PC Building</a></li>
+                        <li><a href="services.html">Tech Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span class="contact-icon">📞</span>
+                            <a href="tel:832-292-7088">832-292-7088</a>
+                        </li>
+                        <li>
+                            <span class="contact-icon">✉️</span>
+                            <a href="mailto:nooriibrahim07@gmail.com">nooriibrahim07@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="contact-icon">📍</span>
+                            <span>4600 Duke St, Alexandria, VA</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dawoodzai Tech Solutions. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

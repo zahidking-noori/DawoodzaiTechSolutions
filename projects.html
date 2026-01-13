@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Dawoodzai Tech Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">DTS</span>
+                <div class="logo-subtitle">
+                    <span>Dawoodzai</span>
+                    <span>Tech Solutions</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="web-design.html">Web Design</a></li>
+                <li><a href="repairs.html">Repairs & Sales</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="contact.html" class="cta-btn">Get Quote</a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header projects-header">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <span class="section-label light">Our Portfolio</span>
+            <h1 class="page-title">
+                Projects &<br>
+                <span class="text-primary">Gallery</span>
+            </h1>
+            <p class="page-description">
+                Explore our recent work across web development, tech repairs, and custom PC builds. 
+                Each project showcases our commitment to quality and excellence.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter & Projects -->
+    <section class="section" data-animate>
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="repair">Tech Repair</button>
+                <button class="filter-btn" data-filter="build">PC Builds</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028?w=600&h=400&fit=crop" alt="E-Commerce Platform">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">🌐</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category blue">Web Design</span>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">A full-featured online store with product management, cart functionality, and secure checkout.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Corporate Website">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">📱</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category blue">Web Design</span>
+                        <h3 class="project-title">Corporate Website</h3>
+                        <p class="project-description">Professional business website with modern design, responsive layout, and contact forms.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="build">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&h=400&fit=crop" alt="Gaming PC Build">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">i9-13900K</span>
+                                <span class="project-tag">RTX 4080</span>
+                                <span class="project-tag">64GB RAM</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">⚙️</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category purple">PC Build</span>
+                        <h3 class="project-title">Gaming PC Build</h3>
+                        <p class="project-description">High-performance gaming rig with RTX 4080, custom water cooling, and RGB lighting.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="repair">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&h=400&fit=crop" alt="MacBook Pro Repair">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">Logic Board</span>
+                                <span class="project-tag">Screen</span>
+                                <span class="project-tag">Battery</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">🔧</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category green">Tech Repair</span>
+                        <h3 class="project-title">MacBook Pro Repair</h3>
+                        <p class="project-description">Complete logic board repair and screen replacement for a water-damaged MacBook Pro.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop" alt="Restaurant Website">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">🌐</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category blue">Web Design</span>
+                        <h3 class="project-title">Restaurant Website</h3>
+                        <p class="project-description">Elegant restaurant website with online menu, reservations, and photo gallery.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="build">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600&h=400&fit=crop" alt="Workstation Build">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">Ryzen 9</span>
+                                <span class="project-tag">RTX 4090</span>
+                                <span class="project-tag">128GB RAM</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">🖥️</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category purple">PC Build</span>
+                        <h3 class="project-title">Workstation Build</h3>
+                        <p class="project-description">Professional video editing workstation with dual monitors and RAID storage.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="repair">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&h=400&fit=crop" alt="Data Recovery">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">SSD Recovery</span>
+                                <span class="project-tag">Data Backup</span>
+                                <span class="project-tag">RAID</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">💾</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category green">Tech Repair</span>
+                        <h3 class="project-title">Data Recovery</h3>
+                        <p class="project-description">Successful recovery of 500GB of business data from a failed enterprise SSD.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="Portfolio Website">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">💼</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category blue">Web Design</span>
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-description">Creative portfolio website for a photographer with gallery and booking system.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="build">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?w=600&h=400&fit=crop" alt="Budget Gaming PC">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">Ryzen 5</span>
+                                <span class="project-tag">RTX 3060</span>
+                                <span class="project-tag">16GB RAM</span>
+                            </div>
+                        </div>
+                        <div class="project-icon">🎮</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category purple">PC Build</span>
+                        <h3 class="project-title">Budget Gaming PC</h3>
+                        <p class="project-description">Affordable gaming build that delivers solid 1080p performance under $800.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="projects-stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number blue">150+</div>
+                    <div class="stat-text">Websites Built</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number green">500+</div>
+                    <div class="stat-text">Devices Repaired</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number purple">200+</div>
+                    <div class="stat-text">PCs Built</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number orange">98%</div>
+                    <div class="stat-text">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section purple">
+        <div class="container">
+            <h2 class="cta-title">Have a Project in Mind?</h2>
+            <p class="cta-description">
+                Let's bring your ideas to life. Contact us today to discuss your next project.
+            </p>
+            <a href="contact.html" class="btn btn-light">Start Your Project →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">DTS</div>
+                    <p class="footer-description">
+                        Dawoodzai Tech Solutions provides comprehensive technology services including 
+                        web development, computer repairs, and custom PC building.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">📷</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="web-design.html">Web Development</a></li>
+                        <li><a href="services.html">Custom Cards</a></li>
+                        <li><a href="repairs.html">Laptop & PC Repair</a></li>
+                        <li><a href="repairs.html">PC Building</a></li>
+                        <li><a href="services.html">Tech Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span class="contact-icon">📞</span>
+                            <a href="tel:832-292-7088">832-292-7088</a>
+                        </li>
+                        <li>
+                            <span class="contact-icon">✉️</span>
+                            <a href="mailto:nooriibrahim07@gmail.com">nooriibrahim07@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="contact-icon">📍</span>
+                            <span>4600 Duke St, Alexandria, VA</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dawoodzai Tech Solutions. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
