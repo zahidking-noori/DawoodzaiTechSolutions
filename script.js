@@ -211,45 +211,56 @@ document.addEventListener('DOMContentLoaded', function() {
         return re.test(email);
     }
     
-    function submitForm() {
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const btnText = submitButton.querySelector('.btn-text');
-        const btnLoading = submitButton.querySelector('.btn-loading');
-        
-        // Show loading state
-        submitButton.disabled = true;
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline';
-        
-        // Simulate form submission (replace with actual API call)
-        setTimeout(function() {
-            // Hide loading state
-            submitButton.disabled = false;
-            btnText.style.display = 'inline';
-            btnLoading.style.display = 'none';
-            
-            // Show success message
+   function submitForm() {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const btnText = submitButton.querySelector('.btn-text');
+    const btnLoading = submitButton.querySelector('.btn-loading');
+    
+    // Show loading state
+    submitButton.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    
+    // Prepare form data
+    const formData = new FormData(contactForm);
+    
+    // Send to Formspree
+    fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        submitButton.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+
+        if (response.ok) {
             const successMessage = document.getElementById('successMessage');
             if (successMessage) {
                 successMessage.style.display = 'flex';
-                
-                // Scroll to success message
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-            
-            // Reset form
             contactForm.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(function() {
-                if (successMessage) {
-                    successMessage.style.display = 'none';
-                }
+
+            setTimeout(() => {
+                if (successMessage) successMessage.style.display = 'none';
             }, 5000);
-            
-        }, 1500); // Simulated delay
-    }
-    
+        } else {
+            alert('Oops! There was a problem sending your message.');
+        }
+    })
+    .catch(error => {
+        submitButton.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        alert('Oops! There was a problem sending your message.');
+        console.error(error);
+    });
+}
+
     
     // ========================================
     // SMOOTH SCROLLING FOR ANCHOR LINKS
