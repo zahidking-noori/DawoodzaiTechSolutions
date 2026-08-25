@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Internal Search</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #202124; 
+            color: #bdc1c6; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding-top: 5vh; 
+            box-sizing: border-box; 
+        }
+        .search-container { 
+            width: 100%; 
+            max-width: 600px; 
+            text-align: center; 
+            padding: 0 20px; 
+        }
+        .logo { 
+            font-size: 2.5rem; 
+            font-weight: bold; 
+            color: #8ab4f8; 
+            margin-bottom: 20px; 
+        }
+        .search-box { 
+            display: flex; 
+            background: #303134; 
+            border: 1px solid #5f6368; 
+            border-radius: 24px; 
+            padding: 10px 20px; 
+        }
+        .search-box input { 
+            flex: 1; 
+            background: transparent; 
+            border: none; 
+            outline: none; 
+            color: #e8eaed; 
+            font-size: 16px; 
+        }
+        .search-box button { 
+            background: transparent; 
+            border: none; 
+            color: #8ab4f8; 
+            cursor: pointer; 
+            font-size: 16px; 
+        }
+        .results-container { 
+            width: 100%; 
+            max-width: 600px; 
+            margin-top: 20px; 
+            text-align: left; 
+        }
+        .result-item { 
+            margin-bottom: 20px; 
+        }
+        .result-item a { 
+            color: #8ab4f8; 
+            text-decoration: none; 
+            font-size: 18px; 
+        }
+        .result-snippet { 
+            font-size: 14px; 
+            color: #9aa0a6; 
+            margin-top: 5px; 
+        }
+        
+        /* New Window UI */
+        #browser-container { 
+            width: 90%; 
+            max-width: 1200px; 
+            margin-top: 20px; 
+            border: 2px solid #5f6368; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            display: none; 
+            background: #fff; 
+            flex-direction: column; 
+        }
+        .window-toolbar { 
+            background: #303134; 
+            padding: 8px; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 10px; 
+            border-bottom: 1px solid #5f6368; 
+        }
+        .window-toolbar button { 
+            background: #444; 
+            color: white; 
+            border: none; 
+            padding: 5px 12px; 
+            cursor: pointer; 
+            border-radius: 4px; 
+            font-weight: bold; 
+        }
+        .window-toolbar button:hover { 
+            background: #555; 
+        }
+        .window-toolbar button.close:hover { 
+            background: #f28b82; 
+            color: #000; 
+        }
+        #browser-window { 
+            width: 100%; 
+            height: 70vh; 
+            border: none; 
+            background: #fff; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <div class="logo">DTS Web</div>
+        <form id="search-form" class="search-box">
+            <input type="text" id="search-input" placeholder="Search Google or type a URL..." required autocomplete="off">
+            <button type="submit">🔍</button>
+        </form>
+    </div>
+
+    <div id="results" class="results-container"></div>
+    
+    <!-- The Custom Browser Frame -->
+    <div id="browser-container">
+        <div class="window-toolbar">
+            <button id="min-btn">Minimize</button>
+            <button id="full-btn">Fullscreen</button>
+            <button id="close-btn" class="close">X</button>
+        </div>
+        <iframe id="browser-window" src=""></iframe>
+    </div>
+
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const resultsContainer = document.getElementById('results');
+        const browserContainer = document.getElementById('browser-container');
+        const browserWindow = document.getElementById('browser-window');
+
+        // Your Kali Cloudflare tunnel URL
+        const API_URL = 'https://artists-extension-territories-winner.trycloudflare.com/api/search';
+
+        // Window Controls
+        document.getElementById('close-btn').addEventListener('click', () => {
+            browserContainer.style.display = 'none';
+            browserWindow.src = '';
+        });
+        
+        document.getElementById('min-btn').addEventListener('click', () => {
+            browserContainer.style.display = 'none'; // Hides it (minimize)
+        });
+
+        document.getElementById('full-btn').addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                browserContainer.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        searchForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            let query = searchInput.value.trim();
+            if (!query) return;
+
+            // URL Handling
+            if (query.includes('.com') || query.includes('.org') || query.includes('.net') || query.startsWith('http')) {
+                if (!query.startsWith('http')) query = 'https://' + query;
+                
+                resultsContainer.innerHTML = '';
+                browserContainer.style.display = 'flex';
+                
+                // Route the URL through your Kali proxy endpoint to strip security headers
+                const proxyUrl = API_URL.replace('/search', '/proxy');
+                browserWindow.src = `${proxyUrl}?url=${encodeURIComponent(query)}`;
+                return;
+            }
+
+            // Google Search Handling
+            browserContainer.style.display = 'none';
+            browserWindow.src = '';
+            resultsContainer.innerHTML = '<p style="color: #9aa0a6;">Searching Google via Kali Backend...</p>';
+
+            try {
+                const response = await fetch(`${API_URL}?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+
+                resultsContainer.innerHTML = '';
+
+                if (data.items && data.items.length > 0) {
+                    data.items.forEach(item => {
+                        resultsContainer.innerHTML += `
+                            <div class="result-item">
+                                <a href="${item.link}" target="_blank">${item.title}</a>
+                                <div class="result-snippet">${item.snippet}</div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    resultsContainer.innerHTML = '<p>No results found.</p>';
+                }
+            } catch (err) {
+                resultsContainer.innerHTML = '<p style="color: #f28b82;">Error: Could not reach Kali backend. Is the tunnel still open?</p>';
+            }
+        });
+    </script>
+</body>
+</html>
